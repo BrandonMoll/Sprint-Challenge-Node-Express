@@ -1,0 +1,19 @@
+{
+  "name": "Sprint-Challenge-Node-Express",
+  "version": "1.0.0",
+  "description": "Sprint",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": "https://github.com/BrandonMoll/Sprint-Challenge-Node-Express",
+  "author": "Brandon Moll",
+  "license": "y",
+  "dependencies": {
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.7",
+    "sqlite3": "^4.0.4"
+  }
+}
