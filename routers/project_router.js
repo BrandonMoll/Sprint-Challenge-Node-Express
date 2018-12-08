@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     const project = req.body;
 
-    if(project.name.length < 128 && project.description) {
+    if(project.name && project.name.length < 128 && project.description) {
         db.insert(project)
         .then(idInfo => {
             db.get(idInfo.id)
@@ -71,7 +71,7 @@ router.put('/:id', (req, res) => {
     const {id} = req.params;
     const project = req.body;
 
-    if(project.name.length < 128 && project.description) {
+    if(project.name && project.name.length < 128 && project.description) {
         db.update(id, project)
         .then(projectInfo => {
             if(projectInfo) {

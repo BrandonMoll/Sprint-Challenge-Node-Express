@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     const action = req.body;
-    if(action.project_id && action.description.length < 128) {
+    if(action.project_id && action.description && action.notes && action.description.length < 128) {
         db.insert(action)
         .then(actionInfo => {
             db.get(actionInfo.id)
