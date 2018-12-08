@@ -14,7 +14,7 @@ server.use(
 );
 
 server.use('/api/actions', actionRouter)
-server.use('/api/project', projectRouter)
+server.use('/api/projects', projectRouter)
 
 server.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}`)
