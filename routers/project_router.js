@@ -65,6 +65,28 @@ router.delete('/:id', (req, res) => {
     .catch(err => {
         res.status(500).json({message: 'Error in DELETE endpoint'})
     })
+});
+
+router.put('/:id', (req, res) => {
+    const {id} = req.params;
+    const project = req.body;
+
+    if(project.name.length < 128 && project.description) {
+        db.update(id, project)
+        .then(projectInfo => {
+            if(projectInfo) {
+                db.get(projectInfo.id)
+                .then(updatedProject => {
+                    res.json(updatedProject)
+                })
+            } else {
+                res.status(404).json({message: 'Project ID does not exist'})
+            }
+        })
+        .catch(err => {
+            res.status(500).json({message: 'Error in PUT endpoint'})
+        })
+    }
 })
 
 module.exports = router;
