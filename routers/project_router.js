@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
         .then(idInfo => {
             db.get(idInfo.id)
             .then(newProject => {
-                res.json(newProject)
+                res.status(201).json(newProject)
             })
         })
         .catch(err => {
